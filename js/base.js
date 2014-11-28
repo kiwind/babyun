@@ -1,18 +1,18 @@
 //Copyright  All Rights Reserved
 /**
- * DS base lib
- * created by author kiwind @ 2014-10-15 / kiwind.cn
+ * Babyun base lib
+ * created by author kiwind @ 2014-11-28 / kiwind.cn
  */
-var DS = (function($){
-    var _DS = function(Fn){
+var Babyun = (function($){
+    var _Babyun = function(Fn){
         this.Fn = Fn || [];
         var para = Array.prototype.slice.call(arguments);
         if (para.length === 0) {
             return this.Fn;
         }
-        return new _DS.widget[para[0]](para[1]);
+        return new _Babyun.widget[para[0]](para[1]);
     };
-    _DS.widget = _DS.prototype;
+    _Babyun.widget = _Babyun.prototype;
     /**
      * [选项卡]
      * @para opt: {object} 传入的对象参数
@@ -30,7 +30,7 @@ var DS = (function($){
      * @para delay: {Boolean} 是否延迟触发，默认false
      * @para delaytTime: {Number} 默认200
      */
-    _DS.widget.Tab = function(opt) {
+    _Babyun.widget.Tab = function(opt) {
         this.opt = opt || {};
         this.uid = this.opt.uid || "";
         this.tabBtn = this.opt.tabBtn || ".tab";
@@ -51,7 +51,7 @@ var DS = (function($){
         this.init();
     };
 
-    _DS.widget.Tab.prototype = {
+    _Babyun.widget.Tab.prototype = {
         init: function() {
             this.startFn();
         },
@@ -188,7 +188,7 @@ var DS = (function($){
      * @para savecallback: {Fucntion} 保存按钮回调函数
      * @para initFn: {Fucntion} 初始化回调函数
      */
-    _DS.widget.AlertBox = function(opt){
+    _Babyun.widget.AlertBox = function(opt){
         this.opt = opt || {};
         this.box = this.opt.box || "";
         this.hasMask = this.opt.hasMask || false;
@@ -207,7 +207,7 @@ var DS = (function($){
         this.initFn = this.opt.initFn || function(){};
         this.init();
     };
-    _DS.widget.AlertBox.prototype = {
+    _Babyun.widget.AlertBox.prototype = {
         /**
          * 提取公共弹出框
          */
@@ -321,7 +321,7 @@ var DS = (function($){
         }
     };
 
-    _DS.widget.Popbox = function(opt){
+    _Babyun.widget.Popbox = function(opt){
        this.opt = opt || {};
        this.tip = this.opt.tip || '';
        this.btnText = this.opt.btnText || [];
@@ -329,7 +329,7 @@ var DS = (function($){
        this.initializer();
     };
 
-    _DS.widget.Popbox.prototype = {
+    _Babyun.widget.Popbox.prototype = {
         initializer : function(){
             var self = this,
                 _btnstr = "";
@@ -382,7 +382,7 @@ var DS = (function($){
      * @para opt: {object} 传入的对象参数
      * @para box: {String} 输入容器，必须存在
      */
-    _DS.widget.InputLimit = function(opt){
+    _Babyun.widget.InputLimit = function(opt){
         this.opt = opt || {};
         this.box = this.opt.box || null;
         this.input = this.opt.input || "textarea";
@@ -391,7 +391,7 @@ var DS = (function($){
         var timer,
             _input = this.box.find(this.input),
             _numTxt = this.box.find(this.numTxt),
-            _dstr = _input.val(),
+            _Babyuntr = _input.val(),
             _limit = this.limit;
 
         _numTxt.text(_limit-_input.val().length);
@@ -411,7 +411,7 @@ var DS = (function($){
             focusout:function(){
                 if($(this).val() == "")
                 {
-                    $(this).val(_dstr);
+                    $(this).val(_Babyuntr);
                     _numTxt.text(_limit);
                 }
                 clearInterval(timer);
@@ -421,7 +421,7 @@ var DS = (function($){
 
     
 
-    _DS.widget.ChangeNum = function(opt){
+    _Babyun.widget.ChangeNum = function(opt){
         this.opt = opt || {};
         this.reduceBtn = this.opt.reduceBtn || null;
         this.addBtn = this.opt.addBtn || null;
@@ -431,7 +431,7 @@ var DS = (function($){
         this.init();
     };
 
-    _DS.widget.ChangeNum.prototype = {
+    _Babyun.widget.ChangeNum.prototype = {
         init:function(){
             var _this = this;
             _this.count = parseInt(this.txt.val());
@@ -463,7 +463,7 @@ var DS = (function($){
         }
     };
 
-    _DS.widget.SearchFilter = function(opt){
+    _Babyun.widget.SearchFilter = function(opt){
         this.opt = opt || {};
         this.box = this.opt.box;
         this.tab = this.opt.tab || ".tab";
@@ -473,7 +473,7 @@ var DS = (function($){
         this.init();
     };
 
-    _DS.widget.SearchFilter.prototype = {
+    _Babyun.widget.SearchFilter.prototype = {
         init:function(){
             var _this = this,
                 _box = $(_this.box),
@@ -499,7 +499,7 @@ var DS = (function($){
         }
     };
 
-    _DS.widget.CountDown = function(opt){
+    _Babyun.widget.CountDown = function(opt){
         this.opt = opt || {};
         this.box = this.opt.box;
         this.seconds = this.opt.seconds || 60;
@@ -508,7 +508,7 @@ var DS = (function($){
         this.init();
     };
 
-    _DS.widget.CountDown.prototype = {
+    _Babyun.widget.CountDown.prototype = {
         init:function(){
             var _this = this;
             _this.showTime(_this.seconds);
@@ -546,7 +546,7 @@ var DS = (function($){
     };
 
 
-    _DS.common = {
+    _Babyun.common = {
         isIE6:!!window.ActiveXObject&&!window.XMLHttpRequest,
         init:function(){
             this.placeHolder();
@@ -614,8 +614,8 @@ var DS = (function($){
     }
 
     $(function(){
-        _DS.common.init();
+        _Babyun.common.init();
     })
 
-    return {widget:_DS};
+    return {widget:_Babyun};
 })(jQuery);

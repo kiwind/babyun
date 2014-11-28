@@ -6,9 +6,9 @@
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
 <link type="text/css" rel="stylesheet" href="css/common.css" />
 <link type="text/css" rel="stylesheet" href="css/carousel/carousel.css" />
+<link type="text/css" rel="stylesheet" href="css/carousel/transitions.css" />
 <link type="text/css" rel="stylesheet" href="css/style.css" />
 <script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/base.js"></script>
 </head>
 <body>
 <div class="header clearfix">
@@ -34,8 +34,23 @@
 		</div>
 	</div>
 </div>
-<div class="slider index-slider">
-	<div class="item"><a href="#"><img src="temp/index_banner.jpg" alt="" /></a></div>
+<div id="indexSlider" class="slider index-slider loading">
+	<ul>
+		<li data-img="temp/banner_img1.jpg"><a href="#"></a></li>
+		<li data-img="temp/banner_img2.jpg"><a href="#"></a></li>
+		<li data-img="temp/banner_img3.jpg"><a href="#"></a></li>
+	</ul>
+	<div class="control">
+		<div class="page-btn">
+			<a class="prev" href="javascript:void(0)"></a>
+			<a class="next" href="javascript:void(0)"></a>
+		</div>
+		<div class="s-btn">
+			<a class="cur" href="javascript:void(0)"></a>
+			<a href="javascript:void(0)"></a>
+			<a href="javascript:void(0)"></a>
+		</div>
+	</div>
 </div>
 <div class="w pservice"></div>
 <div class="module partner">
@@ -90,7 +105,7 @@
 						<img src="temp/news.jpg" alt="" />
 						<div class="n-title">
 							<span class="mask"></span>
-							<p>22新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题</p>
+							<p>11新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题</p>
 						</div>
 					</a>
 					<div class="stxt">新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容。</div>
@@ -100,17 +115,7 @@
 						<img src="temp/news.jpg" alt="" />
 						<div class="n-title">
 							<span class="mask"></span>
-							<p>33新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题</p>
-						</div>
-					</a>
-					<div class="stxt">新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容。</div>
-				</li>
-				<li>
-					<a class="img" href="#">
-						<img src="temp/news.jpg" alt="" />
-						<div class="n-title">
-							<span class="mask"></span>
-							<p>44新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题</p>
+							<p>11新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题</p>
 						</div>
 					</a>
 					<div class="stxt">新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容。</div>
@@ -122,7 +127,7 @@
 		<div class="m-title">
 			<h3>我们的用户</h3>
 		</div>
-		<ul class="c-tab">
+		<ul class="c-tab clearfix">
 			<li class="cur">
 				<span class="ico ico-leader"></span>
 				<p>园长说</p>
@@ -163,11 +168,11 @@
 	</div>
 	<div class="copyright">南京贝贝云网络科技有限公司  版权所有  2014年苏ICP备  14011045号</div>
 </div>
-<script type="text/javascript" src="js/carousel.min.js"></script>
-<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/carousel.js"></script>
+<script type="text/javascript" src="js/babyun.js"></script>
 <script type="text/javascript">
 	$(function(){
-		DS.member.index.init();
+		Babyun.index.init();
 	});
 </script>
 </body>
